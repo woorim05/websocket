@@ -1,0 +1,29 @@
+server:
+  port: 8081
+  servlet:
+    jsp:
+      init-parameters:
+        development: false
+spring:
+  thymeleaf:
+    suffix: .jsp
+    cache: false
+
+  profiles:
+    active: prd
+
+management:
+  server:
+    port: 8082
+  endpoint:
+    health:
+      enabled: true
+      probes:
+        enabled: true
+  endpoints:
+    web:
+      exposure:
+        include: health
+
+logging:
+  config: classpath:log4j2.xml
